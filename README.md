@@ -165,12 +165,31 @@ def multimap(pairs) -> dict:
     return result
 # Create your own map and define the nodes
 
-chennai_to_arakkonam = Map(
-    {('chennai', 'annanagar'):  8, ('annanagar', 'koyambedu'): 8, ('koyambedu', 'poonamalle'): 13, ('poonamalle', 'chettipedu'): 10, ('chettipedu', 'sengadu'): 4, ('sengadu', 'perambakkam'): 13,('perambakkam', 'thakkolam'): 13, ('thakkolam', 'arakkonam'):  12,
-     ('chennai', 'perambur'): 7, ('perambur', 'ambattur'): 15, ('ambattur', 'avadi'): 10, ('avadi', 'thiruvallur'): 13,('thiruvallur', 'thiruvalangadu'): 20,('thiruvalangadu', 'vyasapuaram'): 8,('vyasapuaram', 'arakkonam'): 9,
-     ('poonamalle', 'thirumalizai'): 5, ('thirumalizai', 'perumalpattu'):  10, ('perumalpattu', 'manavalanagar'): 14, ('manavalanagar', 'thiruvallur'): 3,
-    ('manavalanagar', 'manavur'): 42,('manavur', 'arakkonam'): 21,('manavalanagar', 'sengadu'): 26,
-    ('perumalpattu', 'nemam'): 7,('nemam', 'chettipedu'): 15,})
+   saveetha_nearby_locations = Map(
+    {('Poonamallee', 'SeenerKupam'): 3,
+    ('Poonamallee', 'Karanchavadi'): 3,
+    ('SeenerKupam', 'paruthipattu'): 3,  
+    ('paruthipattu','Avadi'): 5,
+    ('Avadi','Ambattur'): 2,
+    ('Ambattur', 'Ambattur Estate'): 1,
+    ('Ambattur Estate', 'Anna nagar west'): 2, 
+    ('Ambattur Estate', 'Maduravoyal'):  5, 
+    ('Maduravoyal', 'Koyambedu'): 5, 
+    ('Koyambedu', 'CMBT'): 1,
+    ('Koyambedu', 'Chetpet'): 6,
+    ('CMBT', 'Vadapalani'): 5,  
+    ('Kattupakkam', 'Porur link road'): 4, 
+    ('Porur link road', 'Porur'): 1,
+    ('Porur', 'Vadapalani'): 3,
+    ('Porur link road', 'Maduravoil'): 2, 
+    ('Porur', 'Vadapalani'): 4,
+    ('Vadapalani', 'T-Nagar'): 4,
+    ('Vadapalani', 'Guindy'): 6,
+    ('Vadapalani', 'Nungabakkam'): 4,
+    ('Nungabakkam','Chetpet'): 5,
+    ('T-Nagar', 'Guindy'): 7, 
+    ('Porur', 'Gundy'): 10, 
+    ('Gundy', 'ChennaiAirport'): 5})
 
 
 r0 = RouteProblem('chennai', 'arakkonam', map=chennai_to_arakkonam)

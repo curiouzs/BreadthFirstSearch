@@ -31,6 +31,7 @@ Pass the required location it will return the distance and destination.
 ## PROGRAM
 ```python #DEVELOPED BY: M.LOKESH KRISHNAA 
 #REGISTER NO : 212220230030
+```
 ```python
 %matplotlib inline
 import matplotlib.pyplot as plt
@@ -116,63 +117,23 @@ def multimap(pairs) -> dict:
     for key, val in pairs:
         result[key].append(val)
     return result
-   saveetha_nearby_locations = Map(
-    {('Poonamallee', 'SeenerKupam'): 3,
-    ('Poonamallee', 'Karanchavadi'): 3,
-    ('SeenerKupam', 'paruthipattu'): 3,  
-    ('paruthipattu','Avadi'): 5,
-    ('Avadi','Ambattur'): 2,
-    ('Ambattur', 'Ambattur Estate'): 1,
-    ('Ambattur Estate', 'Anna nagar west'): 2, 
-    ('Ambattur Estate', 'Maduravoyal'):  5, 
-    ('Maduravoyal', 'Koyambedu'): 5, 
-    ('Koyambedu', 'CMBT'): 1,
-    ('Koyambedu', 'Chetpet'): 6,
-    ('CMBT', 'Vadapalani'): 5,  
-    ('Kattupakkam', 'Porur link road'): 4, 
-    ('Porur link road', 'Porur'): 1,
-    ('Porur', 'Vadapalani'): 3,
-    ('Porur link road', 'Maduravoil'): 2, 
-    ('Porur', 'Vadapalani'): 4,
-    ('Vadapalani', 'T-Nagar'): 4,
-    ('Vadapalani', 'Guindy'): 6,
-    ('Vadapalani', 'Nungabakkam'): 4,
-    ('Nungabakkam','Chetpet'): 5,
-    ('T-Nagar', 'Guindy'): 7, 
-    ('Porur', 'Gundy'): 10, 
-    ('Gundy', 'ChennaiAirport'): 5})
-
-r0 = RouteProblem('chennai', 'arakkonam', map=chennai_to_arakkonam)
-goal_state_path=breadth_first_search(r0)
-print("GoalStateWithPath:{0}".format(goal_state_path))
-path_states(goal_state_path) 
-print("Total Distance={0} Kilometers".format(goal_state_path.path_cost))
-
-r1 = RouteProblem('chennai', 'thiruvallur', map=chennai_to_arakkonam)
-goal_state_path=breadth_first_search(r1)
-print("GoalStateWithPath:{0}".format(goal_state_path))
-path_states(goal_state_path) 
-print("Total Distance={0} Kilometers".format(goal_state_path.path_cost))
-
-r2 = RouteProblem('poonamalle', 'arakkonam', map=chennai_to_arakkonam)
-goal_state_path=breadth_first_search(r2)
-print("GoalStateWithPath:{0}".format(goal_state_path))
-path_states(goal_state_path) 
-print("Total Distance={0} Kilometers".format(goal_state_path.path_cost))
-
-r3 = RouteProblem('arakkonam', 'ambattur', map=chennai_to_arakkonam)
-goal_state_path=breadth_first_search(r3)
-print("GoalStateWithPath:{0}".format(goal_state_path))
-path_states(goal_state_path) 
-print("Total Distance={0} Kilometers".format(goal_state_path.path_cost))
-
-r4 = RouteProblem('perambakkam', 'avadi', map=chennai_to_arakkonam)
-goal_state_path=breadth_first_search(r4)
-print("GoalStateWithPath:{0}".format(goal_state_path))
-path_states(goal_state_path) 
-print("Total Distance={0} Kilometers".format(goal_state_path.path_cost))
+Home_nearby_locations = Map(
+    {('Kundrathur', 'Home'): 6, ('Kundrathur', 'Pammal'): 6,
+     ('Home', 'Porur'): 4, ('Pammal', 'Airport'):5,
+     ('Porur', 'Vadapalani'): 7, ('Porur', 'Maduravoyal'): 4, ('Porur', 'Guindy'): 10, ('Airport', 'Guindy'): 9,
+     ('Vadapalani', 'T.Nagar'): 4, ('Vadapalani', 'Koyambedu'): 4, ('Maduravoyal', 'Koyambedu'): 5, ('Maduravoyal', 'Ambattur'): 6, ('Guindy', 'Saidapet'): 2,
+     ('T.Nagar', 'EA Mall'): 5, ('Koyambedu', 'Korattur'): 6, ('Ambattur', 'Madhavaram'): 13, ('Saidapet', 'T.Nagar'): 4,
+     ('EA Mall', 'Broadway'): 5, ('Korattur', 'Mahavaram'): 10, ('Madhavaram', 'Manali'): 11,
+     ('Broadway', 'Tondiarpet'): 5, ('Broadway', 'Perambur'): 9, ('Manali', 'Tiruvottiyur'): 7,
+     ('Tondiarpet', 'Tiruvottiyur'): 6, ('Perambur', 'Madhavaram'): 5})
+r0 = RouteProblem('Home', 'Tiruvottiyur', map=Home_nearby_locations)
+goal_state_path_0=breadth_first_search(r0)
+print("GoalStateWithPath:{0}".format(goal_state_path_0))
+print("Total Distance={0} Kilometers".format(goal_state_path_0.path_cost))
+print("Route:{0}".format(path_states(goal_state_path_0)))
 ```
 ## OUTPUT:
+![bfs](https://user-images.githubusercontent.com/75234646/175819112-ef5ceba7-32a2-4291-8e3f-70c545fa3b18.PNG)
 ## SOLUTION JUSTIFICATION:
 The Route solutions are found by Breadth First Search algorithm(following FIFO and routes travelling from left to right).
 ## RESULT:

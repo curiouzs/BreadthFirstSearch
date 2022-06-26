@@ -58,12 +58,7 @@ def __init__(self, state, parent=None, action=None, path_cost=0):
         self.__dict__.update(state=state, parent=parent, action=action, path_cost=path_cost)
 
 def __str__(self): 
-        return '<{0}>'.format(self.state)
-def __len__(self): 
-        return 0 if self.parent is None else (1 + len(self.parent))
-def __lt__(self, other): 
-        return self.path_cost < other.path_cost
-        
+        return '<{0}>'.format(self.state)        
 failure = Node('failure', path_cost=math.inf) # Indicates an algorithm couldn't find a solution.
 cutoff  = Node('cutoff',  path_cost=math.inf) # Indicates iterative deepening search was cut off.
 def expand(problem, node):
@@ -72,12 +67,10 @@ def expand(problem, node):
         s1 = problem.result(s, action)
         cost = node.path_cost + problem.action_cost(s, action, s1)
         yield Node(s1, node, action, cost)
-
 def path_actions(node):
     if node.parent is None:
         return []  
     return path_actions(node.parent) + [node.action]
-
 def path_states(node):
     if node in (cutoff, failure, None): 
         return []
@@ -103,22 +96,13 @@ def breadth_first_search(problem):
 class RouteProblem(Problem):
     def actions(self, state): 
         return self.map.neighbors[state]
-    
-    def result(self, state, action):
-        return action if action in self.map.neighbors[state] else state
-    
     def action_cost(self, s, action, s1):
         return self.map.distances[s, s1]
-    
     def h(self, node):
         locs = self.map.locations
         return straight_line_distance(locs[node.state], locs[self.goal])
  class Map:
-    """A map of places in a 2D world: a graph with vertexes and links between them. 
-    In `Map(links, locations)`, `links` can be either [(v1, v2)...] pairs, 
-    or a {(v1, v2): distance...} dict. Optional `locations` can be {v1: (x, y)} 
-
-    def __init__(self, links, locations=None, directed=False):
+   def __init__(self, links, locations=None, directed=False):
         if not hasattr(links, 'items'): # Distances are 1 by default
             links = {link: 1 for link in links}
         if not directed:
@@ -126,9 +110,7 @@ class RouteProblem(Problem):
                 links[v2, v1] = links[v1, v2]
         self.distances = links
         self.neighbors = multimap(links)
-        self.locations = locations or defaultdict(lambda: (0, 0))
-
-        
+        self.locations = locations or defaultdict(lambda: (0, 0))    
 def multimap(pairs) -> dict:
     result = defaultdict(list)
     for key, val in pairs:
@@ -193,6 +175,5 @@ print("Total Distance={0} Kilometers".format(goal_state_path.path_cost))
 ## OUTPUT:
 ## SOLUTION JUSTIFICATION:
 The Route solutions are found by Breadth First Search algorithm(following FIFO and routes travelling from left to right).
-
 ## RESULT:
 Thus,an algorithm developed to find the route from the source to the destination point using breadth-first search.

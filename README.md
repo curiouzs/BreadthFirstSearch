@@ -25,6 +25,8 @@ Pass the required location it will return the distance and destination.
 
 ## ROUTE MAP
 #### Include your own map
+![Map](https://user-images.githubusercontent.com/75234807/166142528-9743e76e-7271-4562-ae82-c8d0093b1b0a.png)
+
 #### Example map
 ![ alt text for screen readers](./images/map1.jpg "Map around my house")
 
